@@ -1,0 +1,122 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>💘 For Omolola</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      font-family: 'Georgia', serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(to bottom, #ffafbd, #ffc3a0);
+      overflow: hidden;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.88);
+      padding: 50px;
+      border-radius: 25px;
+      text-align: center;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+      z-index: 2;
+      max-width: 500px;
+    }
+
+    h1 {
+      color: #b30059;
+      font-size: 2.8em;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.3em;
+      color: #444;
+      margin-bottom: 30px;
+    }
+
+    button {
+      font-size: 1.4em;
+      padding: 12px 30px;
+      margin: 10px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+    }
+
+    #yes {
+      background-color: #ff4d88;
+      color: white;
+    }
+
+    #no {
+      background-color: #ddd;
+    }
+
+    .heart {
+      position: absolute;
+      color: rgba(255, 0, 100, 0.6);
+      animation: float 6s linear infinite;
+    }
+
+    @keyframes float {
+      from {
+        transform: translateY(100vh);
+        opacity: 1;
+      }
+      to {
+        transform: translateY(-10vh);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <audio id="music" loop>
+    <source src="https://cdn.pixabay.com/audio/2023/02/14/audio_9c6c1a7b7f.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="card" id="card">
+    <h1>Omolola 💕</h1>
+    <p>From the moment you crossed my mind,<br>
+       I knew I had one important question to ask…</p>
+    <h1>Will you be my Valentine? 💖</h1>
+
+    <button id="yes" onclick="yesClicked()">Yes 💘</button>
+    <button id="no" onclick="noClicked()">No 🙈</button>
+  </div>
+
+  <script>
+    const music = document.getElementById("music");
+
+    function yesClicked() {
+      music.play();
+      document.getElementById("card").innerHTML =
+        "<h1>Omolola, you said YES 💘</h1>" +
+        "<p style='font-size:1.4em;'>You’ve just made my heart the happiest 💕<br>I can’t wait to celebrate love with you 🥰</p>";
+    }
+
+    function noClicked() {
+      alert("Omolola… are you sure? My heart already chose you 💕");
+    }
+
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.innerHTML = "💖";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = (20 + Math.random() * 30) + "px";
+      document.body.appendChild(heart);
+
+      setTimeout(() => heart.remove(), 6000);
+    }
+
+    setInterval(createHeart, 400);
+  </script>
+
+</body>
+</html>
